@@ -1,23 +1,27 @@
-import { useState } from 'react';
-import './App.css';
+import { useState } from 'react'
+import TodoBoard from './component/TodoBoard';
+import './App.css' 
 
 function App() {
-  const [todo,setTodo] = useState('');
-  const onChange = (e) => {
-    setTodo(e.target.value)
-    console.log(todo)
+  const [inputvalue,setInputvalue] = useState('');
+  const [todoList, setTodoList] = useState([]);
+  const addItem = () => {
+    console.log('rererere',inputvalue)
+    setTodoList([...todoList,inputvalue])
   }
+
   return (
-    <div>
-      <h1>to do list</h1>
-      <form>
-        <input type='text' placeholder='할 일 입력하기' onChange={onChange}/>
-        <button>등록</button>
-      </form>
-    </div>
+    <main>
+      <input value = {inputvalue} 
+             type='text'
+             placeholder='할일 입력하기'
+             onChange={(event)=>setInputvalue(event.target.value)}/>
+      <button onClick={addItem}>추가</button>
+
+      <TodoBoard todoList={todoList}/>
+    </main>
     
-  
-  );
+  )
 }
 
-export default App;
+export default App
