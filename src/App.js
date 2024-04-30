@@ -1,24 +1,22 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
 
 function App() {
+  const [todo,setTodo] = useState('');
+  const onChange = (e) => {
+    setTodo(e.target.value)
+    console.log(todo)
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>to do list</h1>
+      <form>
+        <input type='text' placeholder='할 일 입력하기' onChange={onChange}/>
+        <button>등록</button>
+      </form>
     </div>
+    
+  
   );
 }
 
