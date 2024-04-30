@@ -6,7 +6,6 @@ function App() {
   const [inputvalue,setInputvalue] = useState('');
   const [todoList, setTodoList] = useState([]);
   const addItem = () => {
-    console.log('rererere',inputvalue)
     setTodoList([...todoList,inputvalue])
   }
 
